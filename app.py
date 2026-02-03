@@ -24,8 +24,11 @@ CORS(app)
 
 # --- ADD THIS HERE FOR RENDER FREE TIER ---
 with app.app_context():
-    db.create_all()
-    print("Database tables created/verified successfully!")
+    try:
+        db.create_all()
+        print("✅ Database tables synced!")
+    except Exception as e:
+        print(f"⚠️ Could not create tables: {e}")
 # ------------------------------------------
 
 # 4. Import and Register Blueprints
