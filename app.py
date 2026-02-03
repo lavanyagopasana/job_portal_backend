@@ -22,6 +22,10 @@ db.init_app(app)
 migrate = Migrate(app, db)
 CORS(app)
 
+@app.route('/')
+def home():
+    return {"message": "Job Portal API is Live!"}, 200
+
 # --- ADD THIS HERE FOR RENDER FREE TIER ---
 with app.app_context():
     try:
