@@ -5,7 +5,7 @@ A secure, relational backend built with **Python Flask** and **MySQL**, designed
 ---
 
 ## 🛠 Tech Stack
-* **Language:** Python 3.x
+* **Language:** Python 3.13.5
 * **Framework:** Flask
 * **Database:** MySQL
 * **ORM:** SQLAlchemy
