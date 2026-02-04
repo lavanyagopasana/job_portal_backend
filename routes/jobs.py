@@ -7,12 +7,22 @@ jobs_bp = Blueprint('jobs', __name__)
 # --- 1. GET ALL JOBS (Public) ---
 @jobs_bp.route('/', methods=['GET'])
 def get_jobs():
-    # Optional: Add filtering by location via query parameters (?location=New York)
-    location = request.args.get('location')
-    if location:
-        jobs = Job.query.filter(Job.location.ilike(f"%{location}%")).all()
-    else:
-        jobs = Job.query.all()
+    # Get search parameters from the URL
+    title_query = request.args.get('title')
+    location_query = request.args.get('location')
+
+    # Start with all jobs
+    query = Job.query
+
+    # If user provided a title, filter by it (case-insensitive)
+    if title_query:
+        query = query.filter(Job.title.ilike(f'%{title_query}%'))
+
+    # If user provided a location, filter by it
+    if location_query:
+        query = query.filter(Job.location.ilike(f'%{location_query}%'))
+
+    jobs = query.all()
         
     results = []
     for job in jobs:
