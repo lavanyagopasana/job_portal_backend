@@ -32,9 +32,9 @@ class Application(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     job_id = db.Column(db.Integer, db.ForeignKey('jobs.id'), nullable=False)
     status = db.Column(db.String(20), default='pending') # pending, accepted, rejected
-    applied_on = db.Column(db.DateTime, default=datetime.utcnow)
+    applied_on = db.Column(db.DateTime, default=datetime.now())
 
 class TokenBlocklist(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     jti = db.Column(db.String(36), nullable=False, index=True)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=datetime.now())

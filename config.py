@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv
-from datetime import datetime,timedelta
-import datetime
+from datetime import timedelta
 
 # Load variables from .env
 load_dotenv()
@@ -16,10 +15,10 @@ class Config:
     SECRET_KEY = os.getenv('SECRET_KEY') # For session/cookies
 
     # 1. How long the access token lasts (e.g., 15 minutes)
-    JWT_ACCESS_TOKEN_EXPIRES = datetime.timedelta(minutes=15)
+    JWT_ACCESS_TOKEN_EXPIRES = timedelta(minutes=15)
     
     # 2. How long the refresh token lasts (e.g., 30 days)
-    JWT_REFRESH_TOKEN_EXPIRES = datetime.timedelta(days=30)
+    JWT_REFRESH_TOKEN_EXPIRES = timedelta(days=30)
 
     UPLOAD_FOLDER = 'uploads/resumes'
     MAX_CONTENT_LENGTH = 5 * 1024 * 1024  # 5MB limit
