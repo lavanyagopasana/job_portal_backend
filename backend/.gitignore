@@ -1,0 +1,18 @@
+# Security: The most important line!
+.env
+
+# Python Virtual Environment
+venv/
+.venv/
+env/
+
+# Python Cache (these are created every time you run your app)
+__pycache__/
+*.pyc
+
+# IDE / Editor Settings
+.vscode/
+.idea/
+
+# Flask/SQLAlchemy logs
+*.log
